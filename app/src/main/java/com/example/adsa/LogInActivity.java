@@ -6,40 +6,32 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.snackbar.BaseTransientBottomBar;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import org.jetbrains.annotations.NotNull;
-
-import java.util.HashMap;
 
 public class LogInActivity extends AppCompatActivity {
 
+    private final String TAG = "SIGN IN PROCESS";
     private FirebaseAuth mAuth;
     private EditText emailField, passwordField;
     private Button signinButton, forgotPassword;
-    private final String TAG = "SIGN IN PROCESS";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        Toolbar myToolbar = findViewById(R.id.login_toolbar);
+        setSupportActionBar(myToolbar);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -109,9 +101,7 @@ public class LogInActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             Log.d(TAG, "Email sent.");
                             Toast.makeText(LogInActivity.this, "\uD83C\uDF89 Email containing password reset link has been sent to the above email id. \uD83C\uDF89", Toast.LENGTH_LONG).show();
-                        }
-                        else
-                        {
+                        } else {
                             emailField.setText("");
                             passwordField.setText("");
                             Toast.makeText(LogInActivity.this, "☹️ Couldn't send password reset email!",
@@ -127,10 +117,9 @@ public class LogInActivity extends AppCompatActivity {
         if (TextUtils.isEmpty(email)) {
             emailField.setError("Required.");
             isValid = false;
-        } else if (!email.matches("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$")){
+        } else if (!email.matches("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$")) {
             emailField.setError("Invalid Email.");
-        }
-        else {
+        } else {
             emailField.setError(null);
         }
         if (!isPasswordReset) {
