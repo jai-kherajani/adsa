@@ -1,11 +1,13 @@
 package com.example.adsa;
 
+import android.os.Bundle;
+import android.util.Log;
+import android.view.MenuItem;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.os.Bundle;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -20,10 +22,6 @@ public class OtherActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private HomeAdapter homeAdapter;
 
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +29,7 @@ public class OtherActivity extends AppCompatActivity {
 
         Toolbar myToolbar = findViewById(R.id.other_toolbar);
         setSupportActionBar(myToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Collections.addAll(itemNames, "About", "Surveys", "Grievances", "Policies");
         Collections.addAll(itemImages, R.drawable.about, R.drawable.survey, R.drawable.grievances, R.drawable.policies);
@@ -41,5 +40,16 @@ public class OtherActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new CustomGridLayoutManager(OtherActivity.this, 2));
         Log.d(TAG, "HomeAdapter Size : " + homeAdapter.getItemCount());
         recyclerView.setAdapter(homeAdapter);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

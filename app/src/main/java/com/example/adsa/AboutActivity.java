@@ -1,16 +1,14 @@
 package com.example.adsa;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import java.util.Calendar;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import mehdi.sakout.aboutpage.AboutPage;
 import mehdi.sakout.aboutpage.Element;
@@ -22,9 +20,9 @@ public class AboutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
 
-
-        Toolbar myToolbar = findViewById(R.id.coming_soon_toolbar);
+        Toolbar myToolbar = findViewById(R.id.about_toolbar);
         setSupportActionBar(myToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Element adsElement = new Element();
         adsElement.setTitle("One Team One Dream!!");
@@ -55,7 +53,7 @@ public class AboutActivity extends AppCompatActivity {
 
     Element getCopyRightsElement() {
         Element copyRightsElement = new Element();
-        final String copyrights =  "Copyrights";
+        final String copyrights = "Copyrights";
         copyRightsElement.setTitle(copyrights);
         copyRightsElement.setIconDrawable(R.drawable.copyright);
         copyRightsElement.setAutoApplyIconTint(true);

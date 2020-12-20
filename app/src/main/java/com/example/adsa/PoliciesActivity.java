@@ -1,11 +1,11 @@
 package com.example.adsa;
 
+import android.os.Bundle;
+import android.view.MenuItem;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
-import android.os.Bundle;
-import android.view.MenuItem;
 
 public class PoliciesActivity extends AppCompatActivity {
 
@@ -16,6 +16,7 @@ public class PoliciesActivity extends AppCompatActivity {
 
         Toolbar myToolbar = findViewById(R.id.policies_toolbar);
         setSupportActionBar(myToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
 
