@@ -3,12 +3,14 @@
     package="com.example.adsa">
 
     <application
+        android:name=".ADSAApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ADSA">
+        <activity android:name=".IdCardActivity"></activity>
         <activity android:name=".ComingSoon" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".LogInActivity">

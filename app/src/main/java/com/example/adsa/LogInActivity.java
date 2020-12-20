@@ -17,6 +17,13 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
 
 public class LogInActivity extends AppCompatActivity {
 
@@ -59,7 +66,22 @@ public class LogInActivity extends AppCompatActivity {
 
     private void updateUI(FirebaseUser currentUser) {
         if (currentUser != null) {
-            Toast.makeText(LogInActivity.this, "\uD83D\uDC4B Hello " + currentUser.getEmail(), Toast.LENGTH_SHORT).show();
+            FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+            DatabaseReference databaseReference = firebaseDatabase.getReference("Users/").child(currentUser.getUid());
+            databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    HashMap<String, String> values = (HashMap<String, String>) snapshot.getValue();
+                    ADSAApplication adsaApplication = (ADSAApplication) getApplicationContext();
+                    adsaApplication.setData(values);
+                    Toast.makeText(LogInActivity.this, "\uD83D\uDC4B Hello " + values.get("first_name"), Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    Toast.makeText(LogInActivity.this, "Interrupted by User!", Toast.LENGTH_SHORT).show();
+                }
+            });
             startActivity(new Intent(LogInActivity.this, HomeActivity.class));
             LogInActivity.this.finish();
         }

@@ -82,7 +82,7 @@
             android:drawablePadding="8dp"
             android:text="Sign In"
             android:textColor="@color/white"
-            app:icon="@drawable/lock"
+            app:icon="@drawable/log"
             app:iconGravity="textStart"
             app:iconTint="@android:color/transparent"
             app:iconTintMode="add" />
@@ -95,9 +95,9 @@
             android:layout_marginTop="10dp"
             android:background="@color/black"
             android:drawablePadding="8dp"
-            android:text="Forgot Password"
+            android:text="Reset Password"
             android:textColor="@color/white"
-            app:icon="@drawable/astonished"
+            app:icon="@drawable/reset"
             app:iconGravity="textStart"
             app:iconTint="@android:color/transparent"
             app:iconTintMode="add" />
