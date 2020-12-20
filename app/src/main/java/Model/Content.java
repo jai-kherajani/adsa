@@ -3,9 +3,9 @@ package Model;
 import java.io.Serializable;
 import java.util.List;
 
-public class Content  implements Serializable {
+public class Content implements Serializable {
 
-    private  String text;
+    private String text;
     private List<Content> content;
 
     public String getText() {

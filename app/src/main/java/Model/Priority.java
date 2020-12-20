@@ -2,7 +2,7 @@ package Model;
 
 import java.io.Serializable;
 
-public class Priority  implements Serializable {
+public class Priority implements Serializable {
     private String name;
 
     public String getName() {

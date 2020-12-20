@@ -13,7 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ADSA"
         android:usesCleartextTraffic="true">
-        <activity android:name=".PoliciesActivity"></activity>
+        <activity android:name=".EAPActivity" />
+        <activity android:name=".Covid19Activity" />
+        <activity android:name=".WellBeingActivity" />
+        <activity android:name=".PoliciesActivity" />
         <activity android:name=".AboutActivity" />
         <activity android:name=".OtherActivity" />
         <activity android:name=".IssueDetails" />

@@ -7,19 +7,17 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-public class PoliciesActivity extends AppCompatActivity {
+public class Covid19Activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_policies);
+        setContentView(R.layout.activity_covid19);
 
-        Toolbar myToolbar = findViewById(R.id.policies_toolbar);
+        Toolbar myToolbar = findViewById(R.id.covid19_toolbar);
         setSupportActionBar(myToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
     }
-
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

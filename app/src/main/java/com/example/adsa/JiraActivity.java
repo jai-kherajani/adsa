@@ -1,9 +1,5 @@
 package com.example.adsa;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -11,9 +7,10 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import java.io.Serializable;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -56,7 +53,7 @@ public class JiraActivity extends AppCompatActivity {
                     String s = null;
                     s = response.body().toString();
                     Log.w("JiraIssueResponse", s);
-                 //   Toast.makeText(JiraActivity.this, s, Toast.LENGTH_LONG).show();
+                    //   Toast.makeText(JiraActivity.this, s, Toast.LENGTH_LONG).show();
                     JiraIssueResponse jiraIssueResponse = response.body();
                     if (jiraIssueResponse != null) {
                         Intent i = new Intent(JiraActivity.this, IssueDetails.class);
@@ -69,7 +66,7 @@ public class JiraActivity extends AppCompatActivity {
                 public void onFailure(Call<JiraIssueResponse> call, Throwable t) {
                     String m = t.getMessage();
                     Log.w("RESPONSE FAIL", m);
-                  //  Toast.makeText(JiraActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
+                    //  Toast.makeText(JiraActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
 
                 }
             });
@@ -78,7 +75,6 @@ public class JiraActivity extends AppCompatActivity {
 
 
     }
-
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

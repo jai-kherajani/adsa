@@ -1,9 +1,12 @@
 package com.example.adsa;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 public class IssueDetails extends AppCompatActivity {
 
@@ -11,6 +14,10 @@ public class IssueDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_issue_details);
+
+        Toolbar myToolbar = findViewById(R.id.issues_toolbar);
+        setSupportActionBar(myToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         JiraIssueResponse jiraIssueResponse = (JiraIssueResponse) getIntent().getSerializableExtra("jiraIssueResponse");
 
@@ -41,5 +48,16 @@ public class IssueDetails extends AppCompatActivity {
         TextView comments = findViewById(R.id.comments);
         comments.setText(jiraIssueResponse.getFields().getComment().getComments().get(0).getBody().getContent().get(0).getContent().get(0).getText());
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

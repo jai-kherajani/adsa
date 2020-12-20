@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -26,12 +25,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-
 import java.util.HashMap;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class LogInActivity extends AppCompatActivity {
 
@@ -94,7 +88,7 @@ public class LogInActivity extends AppCompatActivity {
             });
             hideProgressBar();
             startActivity(new Intent(LogInActivity.this, HomeActivity.class));
-           // startActivity(new Intent(LogInActivity.this, JiraActivity.class));
+            // startActivity(new Intent(LogInActivity.this, JiraActivity.class));
             LogInActivity.this.finish();
         }
     }
