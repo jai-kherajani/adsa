@@ -101,61 +101,6 @@ public class LogInActivity extends AppCompatActivity {
 
     private void attemptSignIn() {
         showProgressBar();
-
-  /*      Call<JiraIssueResponse> call = RetrofitClient.getInstance().getApi().getInfo("PROJ1-1");
-
-        call.enqueue(new Callback<JiraIssueResponse>() {
-            @Override
-            public void onResponse(Call<JiraIssueResponse> call, Response<JiraIssueResponse> response) {
-                String s = null;
-                s = response.body().toString();
-                Log.w("JiraIssueResponse", s);
-                Toast.makeText(LogInActivity.this,s,Toast.LENGTH_LONG).show();
-            }
-
-            @Override
-            public void onFailure(Call<JiraIssueResponse> call, Throwable t) {
-                String m = t.getMessage();
-                Log.w(TAG, "RESPONSE FAIL", t);
-                Toast.makeText(LogInActivity.this,t.getMessage(),Toast.LENGTH_LONG).show();
-
-            }
-        });
-
-*/
-
-// ---------******-----------------------------------------------********-------------------------------------------------*****
-
-
-/*
-        Call<JiraAllAssignedIssuesToUserResponse> call2 = RetrofitClient.getInstance().getApi().getAllAssignedIssuesToUser("assignee=currentuser()");
-
-        call2.enqueue(new Callback<JiraAllAssignedIssuesToUserResponse>() {
-            @Override
-            public void onResponse(Call<JiraAllAssignedIssuesToUserResponse> call2, Response<JiraAllAssignedIssuesToUserResponse> response) {
-                String s = null;
-                s = response.body().toString();
-                Log.w("JiraAllAssignedIssuesToUserResponse", s);
-              //  Toast.makeText(LogInActivity.this,s,Toast.LENGTH_LONG).show();
-            }
-
-            @Override
-            public void onFailure(Call<JiraAllAssignedIssuesToUserResponse> call, Throwable t) {
-                String m = t.getMessage();
-                Log.w(TAG, "RESPONSE FAIL", t);
-                //Toast.makeText(LogInActivity.this,t.getMessage(),Toast.LENGTH_LONG).show();
-
-            }
-        });
-
-
-*/
-
-// ---------******-----------------------------------------------********-------------------------------------------------*****
-
-
-
-
         if (validateForm(false)) {
             String email = emailField.getText().toString();
             String password = passwordField.getText().toString();
