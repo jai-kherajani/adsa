@@ -16,6 +16,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -37,7 +38,7 @@ public class LogInActivity extends AppCompatActivity {
     private final String TAG = "SIGN IN PROCESS";
     private FirebaseAuth mAuth;
     private EditText emailField, passwordField;
-    private Button signinButton, forgotPassword;
+    private FloatingActionButton signinButton, forgotPassword;
     private ProgressBar progressBar;
 
     @Override
@@ -93,7 +94,7 @@ public class LogInActivity extends AppCompatActivity {
             });
             hideProgressBar();
             startActivity(new Intent(LogInActivity.this, HomeActivity.class));
-            startActivity(new Intent(LogInActivity.this, JiraActivity.class));
+           // startActivity(new Intent(LogInActivity.this, JiraActivity.class));
             LogInActivity.this.finish();
         }
     }
@@ -126,7 +127,7 @@ public class LogInActivity extends AppCompatActivity {
 // ---------******-----------------------------------------------********-------------------------------------------------*****
 
 
-
+/*
         Call<JiraAllAssignedIssuesToUserResponse> call2 = RetrofitClient.getInstance().getApi().getAllAssignedIssuesToUser("assignee=currentuser()");
 
         call2.enqueue(new Callback<JiraAllAssignedIssuesToUserResponse>() {
@@ -148,7 +149,7 @@ public class LogInActivity extends AppCompatActivity {
         });
 
 
-
+*/
 
 // ---------******-----------------------------------------------********-------------------------------------------------*****
 
