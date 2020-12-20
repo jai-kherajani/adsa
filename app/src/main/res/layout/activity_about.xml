@@ -16,5 +16,9 @@
         android:elevation="16dp"
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-
+    <fragment
+        android:id="@+id/about"
+        android:name="com.example.adsa.AboutFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </LinearLayout>
