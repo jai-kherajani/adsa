@@ -1,6 +1,6 @@
 package Model;
 
-public class Status {
+public class Issuetype {
     private String name;
 
     public String getName() {
@@ -13,7 +13,7 @@ public class Status {
 
     @Override
     public String toString() {
-        return "Status{" +
+        return "Issuetype{" +
                 "name='" + name + '\'' +
                 '}';
     }

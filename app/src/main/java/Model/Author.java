@@ -1,6 +1,6 @@
 package Model;
 
-public class Reporter {
+public class Author {
     private String emailAddress;
     private String displayName;
     private String accountId;
@@ -31,7 +31,7 @@ public class Reporter {
 
     @Override
     public String toString() {
-        return "Reporter{" +
+        return "Author{" +
                 "emailAddress='" + emailAddress + '\'' +
                 ", displayName='" + displayName + '\'' +
                 ", accountId='" + accountId + '\'' +

@@ -31,7 +31,7 @@ public class Assignee {
 
     @Override
     public String toString() {
-        return "Reporter{" +
+        return "Assignee{" +
                 "emailAddress='" + emailAddress + '\'' +
                 ", displayName='" + displayName + '\'' +
                 ", accountId='" + accountId + '\'' +
