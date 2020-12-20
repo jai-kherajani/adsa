@@ -3,10 +3,12 @@ package com.example.adsa;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -30,8 +32,9 @@ public class IdCardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_id_card);
 
-        Toolbar myToolbar = findViewById(R.id.home_toolbar);
+        Toolbar myToolbar = findViewById(R.id.id_card_toolbar);
         setSupportActionBar(myToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         email = findViewById(R.id.employee_email_id);
         id = findViewById(R.id.employee_id);
@@ -71,5 +74,16 @@ public class IdCardActivity extends AppCompatActivity {
         firebaseAuth.signOut();
         IdCardActivity.this.finish();
         startActivity(new Intent(IdCardActivity.this, LogInActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

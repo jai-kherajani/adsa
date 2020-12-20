@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
+    android:id="@+id/container1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -44,6 +44,14 @@
             android:adjustViewBounds="true"
             android:src="@drawable/appdirect" />
 
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center_horizontal"
+            android:visibility="gone" />
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/email"
             android:layout_width="match_parent"
@@ -73,34 +81,68 @@
             android:textColorHint="@color/grey"
             android:textCursorDrawable="@drawable/cursor" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/signin"
+        <GridLayout
+            android:id="@+id/container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@color/black"
-            android:drawablePadding="8dp"
-            android:text="Sign In"
-            android:textColor="@color/white"
-            app:icon="@drawable/log"
-            app:iconGravity="textStart"
-            app:iconTint="@android:color/transparent"
-            app:iconTintMode="add" />
+            android:layout_marginTop="16dp"
+            android:columnCount="4"
+            android:orientation="horizontal"
+            android:rowCount="1">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/forgotPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_marginTop="10dp"
-            android:background="@color/black"
-            android:drawablePadding="8dp"
-            android:text="Reset Password"
-            android:textColor="@color/white"
-            app:icon="@drawable/reset"
-            app:iconGravity="textStart"
-            app:iconTint="@android:color/transparent"
-            app:iconTintMode="add" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/reset_password_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:src="@drawable/reset"
+                    android:tintMode="add"
+                    app:backgroundTint="@color/black"
+                    app:elevation="4dp"
+                    app:fabSize="normal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Reset Password"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/sign_in_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:src="@drawable/log"
+                    android:tintMode="add"
+                    app:backgroundTint="@color/black"
+                    app:elevation="4dp"
+                    app:fabSize="normal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sign In"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+        </GridLayout>
 
     </LinearLayout>
 

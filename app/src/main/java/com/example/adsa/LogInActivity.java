@@ -4,8 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import android.widget.Button;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -14,6 +15,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -30,7 +32,8 @@ public class LogInActivity extends AppCompatActivity {
     private final String TAG = "SIGN IN PROCESS";
     private FirebaseAuth mAuth;
     private EditText emailField, passwordField;
-    private Button signinButton, forgotPassword;
+    private FloatingActionButton signinButton, forgotPassword;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +47,9 @@ public class LogInActivity extends AppCompatActivity {
 
         emailField = findViewById(R.id.email);
         passwordField = findViewById(R.id.password);
-        signinButton = findViewById(R.id.signin);
-        forgotPassword = findViewById(R.id.forgotPassword);
+        signinButton = findViewById(R.id.sign_in_button);
+        forgotPassword = findViewById(R.id.reset_password_button);
+        progressBar = findViewById(R.id.progress);
 
         signinButton.setOnClickListener(v -> {
             attemptSignIn();
@@ -82,12 +86,14 @@ public class LogInActivity extends AppCompatActivity {
                     Toast.makeText(LogInActivity.this, "Interrupted by User!", Toast.LENGTH_SHORT).show();
                 }
             });
+            hideProgressBar();
             startActivity(new Intent(LogInActivity.this, HomeActivity.class));
             LogInActivity.this.finish();
         }
     }
 
     private void attemptSignIn() {
+        showProgressBar();
         if (validateForm(false)) {
             String email = emailField.getText().toString();
             String password = passwordField.getText().toString();
@@ -107,6 +113,7 @@ public class LogInActivity extends AppCompatActivity {
                                         Toast.LENGTH_LONG).show();
                                 emailField.setText("");
                                 passwordField.setText("");
+                                hideProgressBar();
                                 updateUI(null);
                             }
 
@@ -117,6 +124,7 @@ public class LogInActivity extends AppCompatActivity {
     }
 
     private void resetPassword() {
+        showProgressBar();
         if (validateForm(true)) {
             mAuth.sendPasswordResetEmail(emailField.getText().toString())
                     .addOnCompleteListener(task -> {
@@ -131,6 +139,7 @@ public class LogInActivity extends AppCompatActivity {
                         }
                     });
         }
+        hideProgressBar();
     }
 
     private boolean validateForm(boolean isPasswordReset) {
@@ -157,5 +166,18 @@ public class LogInActivity extends AppCompatActivity {
             }
         }
         return isValid;
+    }
+
+    void showProgressBar() {
+        progressBar.isIndeterminate();
+        signinButton.setVisibility(View.GONE);
+        forgotPassword.setVisibility(View.GONE);
+        progressBar.setVisibility(ProgressBar.VISIBLE);
+    }
+
+    void hideProgressBar() {
+        progressBar.setVisibility(ProgressBar.GONE);
+        signinButton.setVisibility(View.VISIBLE);
+        forgotPassword.setVisibility(View.VISIBLE);
     }
 }
