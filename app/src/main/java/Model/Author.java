@@ -2,7 +2,7 @@ package Model;
 
 import java.io.Serializable;
 
-public class Author  implements Serializable {
+public class Author implements Serializable {
     private String emailAddress;
     private String displayName;
     private String accountId;

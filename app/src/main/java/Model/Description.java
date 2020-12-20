@@ -3,7 +3,7 @@ package Model;
 import java.io.Serializable;
 import java.util.List;
 
-public class Description  implements Serializable {
+public class Description implements Serializable {
     private List<Content> content;
 
     public List<Content> getContent() {

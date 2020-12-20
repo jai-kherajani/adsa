@@ -7,14 +7,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-public class Covid19Activity extends AppCompatActivity {
+public class EAPActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_covid19);
-
-        Toolbar myToolbar = findViewById(R.id.covid19_toolbar);
+        setContentView(R.layout.activity_e_a_p);
+        Toolbar myToolbar = findViewById(R.id.eap_toolbar);
         setSupportActionBar(myToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
