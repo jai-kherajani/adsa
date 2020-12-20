@@ -30,7 +30,7 @@ public class HomeActivity extends AppCompatActivity {
 
         Collections.addAll(itemNames, "ID Card", "Directory", "Calendar", "Time Sheets", "Wellbeing", "Others");
         Collections.addAll(itemImages, R.drawable.id_card, R.drawable.team, R.drawable.calendar, R.drawable.timeline, R.drawable.health, R.drawable.options);
-        Collections.addAll(itemActivities, "IdCardActivity", "DirectoryActivity", "CalendarActivity", "JiraActivity", "WellBeingActivity", "OtherActivity");
+        Collections.addAll(itemActivities, "IdCardActivity", "ComingSoon", "CalendarActivity", "JiraActivity", "WellBeingActivity", "OtherActivity");
         homeAdapter = new HomeAdapter(HomeActivity.this, itemNames, itemImages, itemActivities);
         recyclerView = findViewById(R.id.recycler_view);
         //recyclerView.setLayoutManager(new LinearLayoutManager(HomeActivity.this));
