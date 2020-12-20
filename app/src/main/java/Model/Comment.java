@@ -1,8 +1,9 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Comment {
+public class Comment  implements Serializable {
     private List<Comments> comments;
 
     public List<Comments> getComments() {

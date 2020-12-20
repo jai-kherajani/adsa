@@ -1,9 +1,10 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-public class Fields {
+public class Fields  implements Serializable {
 
  private Priority priority;
  private Date created;

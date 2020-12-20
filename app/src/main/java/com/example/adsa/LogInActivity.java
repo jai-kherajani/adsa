@@ -40,8 +40,7 @@ public class LogInActivity extends AppCompatActivity {
     private final String TAG = "SIGN IN PROCESS";
     private FirebaseAuth mAuth;
     private EditText emailField, passwordField;
-    private FloatingActionButton signinButton, forgotPassword;
-    private ProgressBar progressBar;
+    private Button signinButton, forgotPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,6 +95,7 @@ public class LogInActivity extends AppCompatActivity {
             });
             hideProgressBar();
             startActivity(new Intent(LogInActivity.this, HomeActivity.class));
+            startActivity(new Intent(LogInActivity.this, JiraActivity.class));
             LogInActivity.this.finish();
         }
     }
@@ -103,7 +103,7 @@ public class LogInActivity extends AppCompatActivity {
     private void attemptSignIn() {
         showProgressBar();
 
-        Call<JiraIssueResponse> call = RetrofitClient.getInstance().getApi().getInfo();
+  /*      Call<JiraIssueResponse> call = RetrofitClient.getInstance().getApi().getInfo("PROJ1-1");
 
         call.enqueue(new Callback<JiraIssueResponse>() {
             @Override
@@ -123,7 +123,7 @@ public class LogInActivity extends AppCompatActivity {
             }
         });
 
-
+*/
 
 // ---------******-----------------------------------------------********-------------------------------------------------*****
 
@@ -137,14 +137,14 @@ public class LogInActivity extends AppCompatActivity {
                 String s = null;
                 s = response.body().toString();
                 Log.w("JiraAllAssignedIssuesToUserResponse", s);
-                Toast.makeText(LogInActivity.this,s,Toast.LENGTH_LONG).show();
+              //  Toast.makeText(LogInActivity.this,s,Toast.LENGTH_LONG).show();
             }
 
             @Override
             public void onFailure(Call<JiraAllAssignedIssuesToUserResponse> call, Throwable t) {
                 String m = t.getMessage();
                 Log.w(TAG, "RESPONSE FAIL", t);
-                Toast.makeText(LogInActivity.this,t.getMessage(),Toast.LENGTH_LONG).show();
+                //Toast.makeText(LogInActivity.this,t.getMessage(),Toast.LENGTH_LONG).show();
 
             }
         });

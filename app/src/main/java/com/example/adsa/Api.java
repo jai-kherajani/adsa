@@ -7,12 +7,15 @@ import retrofit2.Call;
 
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 
 public interface Api {
-    @GET("rest/api/3/issue/PROJ1-1")
-    Call<JiraIssueResponse> getInfo();
+    @GET("rest/api/3/issue/{Id}")
+    Call<JiraIssueResponse> getInfo(
+            @Path("Id") String id
+    );
 
     @GET("rest/api/3/search")
     Call<JiraAllAssignedIssuesToUserResponse> getAllAssignedIssuesToUser(

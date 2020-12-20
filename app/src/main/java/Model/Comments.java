@@ -1,8 +1,9 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Comments {
+public class Comments  implements Serializable {
     private Author author;
     private Body body;
     private Date created;

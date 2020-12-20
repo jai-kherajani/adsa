@@ -1,8 +1,10 @@
 package com.example.adsa;
 
+import java.io.Serializable;
+
 import Model.Fields;
 
-public class JiraIssueResponse {
+public class JiraIssueResponse implements Serializable {
     private String key;
     private Fields fields;
 

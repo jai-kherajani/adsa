@@ -1,6 +1,8 @@
 package Model;
 
-public class Issuetype {
+import java.io.Serializable;
+
+public class Issuetype  implements Serializable {
     private String name;
 
     public String getName() {

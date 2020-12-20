@@ -1,6 +1,8 @@
 package Model;
 
-public class Priority {
+import java.io.Serializable;
+
+public class Priority  implements Serializable {
     private String name;
 
     public String getName() {
