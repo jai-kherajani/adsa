@@ -13,10 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ADSA"
         android:usesCleartextTraffic="true">
-        <activity android:name=".IssueDetails"></activity>
+        <activity android:name=".PoliciesActivity"></activity>
+        <activity android:name=".AboutActivity" />
+        <activity android:name=".OtherActivity" />
+        <activity android:name=".IssueDetails" />
         <activity android:name=".JiraActivity" />
-        <activity android:name=".HomeActivity"></activity>
-        <activity android:name=".CalendarActivity"/>
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".CalendarActivity" />
         <activity android:name=".DirectoryActivity" />
         <activity android:name=".IdCardActivity" />
         <activity android:name=".ComingSoon" />
