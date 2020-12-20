@@ -33,7 +33,7 @@ public class WellBeingActivity extends AppCompatActivity {
 
         Collections.addAll(itemNames, "Covid 19", "Digital Wellbeing", "EAP", "Medical Insurance");
         Collections.addAll(itemImages, R.drawable.covid, R.drawable.quitting, R.drawable.eap, R.drawable.medical_insurance);
-        Collections.addAll(itemActivities, "ComingSoon", "ComingSoon", "ComingSoon", "ComingSoon");
+        Collections.addAll(itemActivities, "Covid19Activity", "ComingSoon", "ComingSoon", "ComingSoon");
         homeAdapter = new HomeAdapter(WellBeingActivity.this, itemNames, itemImages, itemActivities);
         recyclerView = findViewById(R.id.recycler_view);
         //recyclerView.setLayoutManager(new LinearLayoutManager(HomeActivity.this));

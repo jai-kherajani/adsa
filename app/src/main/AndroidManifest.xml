@@ -13,11 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ADSA"
         android:usesCleartextTraffic="true">
+        <activity android:name=".Covid19Activity"/>
+        <activity android:name=".WellBeingActivity" />
         <activity android:name=".PoliciesActivity"/>
         <activity android:name=".AboutActivity" />
         <activity android:name=".OtherActivity" />
         <activity android:name=".IssueDetails" />
-        <activity android:name=".WellBeingActivity"/>
         <activity android:name=".JiraActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".CalendarActivity" />
